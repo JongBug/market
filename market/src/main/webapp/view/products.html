@@ -1,0 +1,78 @@
+<meta charset="utf-8"/>
+<div ng-init="getProductList()">
+	<div class="page-title">
+		<div class="title_left">
+			<h3>Produtos</h3>
+			<button href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalAdd"><i class="fa fa-plus" style="margin-right:5px"></i>Adicionar Produto</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="x_panel">
+				<div class="x_content">
+
+					<!-- start products list -->
+					<div>
+					  <ul>
+					    <li ng-repeat="dados in productsList">
+					      <h5>Nome: {{dados.title}}</h5>
+					      <h5>Descrição: {{dados.description}}</h5>
+					      <h5>Valor: R$ {{dados.unit_price}}</h5>
+					      <button type="button" class="btn btn-primary" id={{dados.id}} ng-click="addCart(dados)">Adicionar ao Carrinho</button>
+					      <button type="button" class="btn btn btn-danger" id={{dados.id}} ng-click="removeProduct(dados.id)">Remover o Produto</button>
+					    </li>
+					  </ul>
+					</div>
+					<!-- end products list -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal for add new product -->
+	<div id="modalAdd" class="modal fade" role="dialog"
+		data-backdrop="static">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h9><strong>* </strong> Campos obrigatórios.</h9>
+				</div>
+
+				<div ng-bind-html="msgExistente"></div>
+				<div ng-bind-html="msgVazio"></div>
+
+				<div class="modal-body" style="text-align: left; margin-top: 30px">
+				
+					<div class="row">
+						<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 required">
+							* Nome do produto:</label> <input ng-model="ngName"
+							class="form-control col-xs-4 col-sm-4 col-md-5 col-lg-5"
+							id="{{ngName}}" style="text-align: left">
+					</div>
+					<div class="row">
+						<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 required">
+							* Descrição:</label> <input ng-model="ngDescription"
+							class="form-control col-xs-4 col-sm-4 col-md-5 col-lg-5"
+							id="{{ngDescription}}" style="text-align: left">
+					</div>
+					
+					<div class="row">
+						<label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 required">
+							* Valor:</label> <input type="number" ng-model="ngValue"
+							class="form-control col-xs-4 col-sm-4 col-md-5 col-lg-5"
+							id="{{ngValue}}" style="text-align: left">
+					</div>       	
+															
+					<div class="modal-footer row" style="text-align: right">
+						<button ng-click="addProduct()"
+							type="button" class="btn btn-primary">Confirmar</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

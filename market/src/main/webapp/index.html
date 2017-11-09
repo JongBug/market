@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="marketApp">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Jong Lee Market</title>
+
+    <!-- Bootstrap -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body class="nav-md footer_fixed">
+<div class="content"> 
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col menu_fixed">
+          <div class="left_col scroll-view">
+            <div class="clearfix"></div>
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" ng-controller="indexCtrl">
+                <div class="menu_section">
+                <h3 style="color:#2A3F54">.</h3>
+                  <ul class="nav side-menu" >
+                    <li ng-repeat="menu in routeList"  id={{menu.url}} class="menu" ui-sref-active="active" setActive>
+                        <a ui-sref={{menu.url}} name={{menu.url}}>{{menu.name}}</a>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+            <!-- /sidebar menu -->
+
+          </div>
+        </div>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+			<div  ng-show="loading">
+			  <h5>Carregando...</h5>
+			</div>
+          	<!-- views in route -->
+          	
+			<div ui-view></div>
+   		</div>
+
+      </div>
+   </div>
+</div>
+
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+
+    <!-- Angular ui-router -->
+    <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+    <!-- JQuery -->
+	  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Project -->
+
+      <!-- app.js -->
+      <script src="scripts/app.js"></script>
+      <!-- route -->
+      <script src="scripts/route/routeConfig.js"></script>
+      <!-- controllers -->
+      <script src="scripts/controllers/indexController.js"></script>
+      <script src="scripts/controllers/productsController.js"></script>
+      <script src="scripts/controllers/cartController.js"></script>
+      <!-- services -->
+      <script src="scripts/services/productsApiServices.js"></script>
+      <!-- value -->
+      <script src="scripts/value/configValue.js"></script>
+
+    <!-- End Project -->
+
+  </body>
+</html>

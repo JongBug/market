@@ -1,0 +1,33 @@
+<meta charset="utf-8"/>
+<div ng-init="valorTotal()">
+	<div class="page-title">
+		<div class="title_left">
+			<h3>Meu Carrinho</h3>
+		</div>
+	</div>
+
+	<div class="row" ng-init="start = 0">
+		<div class="col-md-12">
+			<div class="x_panel">
+				<div class="x_content">
+
+					<!-- start products list -->
+					<div>
+					  <ul>
+					    <li ng-repeat="dados in cartListView track by $index" ng-init="current = $parent.start; $parent.start=$parent.start+1;">
+					      <h5>Nome: {{dados.title}}</h5>
+					      <h5>Descrição: {{dados.description}}</h5>
+					      <h5>Valor: R$ {{dados.unit_price}}</h5>
+					      <button type="button" class="btn btn-primary" id={{dados.id}} ng-click="removerCarrinho(current)">Remover do Carrinho</button>
+					    </li>
+					  </ul>
+					</div>
+							
+					<h3>Valor Total: R$ {{valorFinal}}</h3>
+					<!-- end products list -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
