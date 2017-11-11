@@ -5,8 +5,9 @@
 ### 1- Copiar e colar o arquivo jonglee_market.db para o diretório "C:\temp";
 ### 2- Copiar e colar o arquivo market-0.0.1-SNAPSHOT.war para algum servidor;
 
-#### Após realizar estas duas etapa basta acessar o servidor com seguinte url: "/market".
+#### Após realizar estas duas etapa basta acessar o servidor com seguinte url: "/market" ou "/market-0.0.1-SNAPSHOT".
 #### Exemplo: "localhost:8080/market/"
+#### Exemplo: "localhost:8080/market-0.0.1-SNAPSHOT/"
 
 Os arquivos de Front-End se encontram no seguinte diretório: market/market/src/main/webapp/
 
